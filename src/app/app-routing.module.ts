@@ -5,10 +5,11 @@ import { AddtTasksComponent } from './addt-tasks/addt-tasks.component';
 import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
-
-  {path:'list-task',component:ListTasksComponent},
+  { path: '', redirectTo: '/task-list', pathMatch: 'full' }, 
+  { path: 'task-list', component:ListTasksComponent },
   {path:'addtask',component:AddtTasksComponent},
-  { path: 'edit/:id', component: EditComponent }
+  { path: 'edit/:id', component: EditComponent },
+  { path: '**', redirectTo: '/task-list' } 
 ,
 ]
 
