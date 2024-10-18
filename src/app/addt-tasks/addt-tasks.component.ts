@@ -11,14 +11,17 @@ export class AddtTasksComponent {
   constructor(private _TaskService: TaskService, private _Route: Router) {}
 
   formData: any = {
-    id: '',
+    id: 0,
     title: '',
     details: ''
   };
 
+  private static lastId: number = 0; 
+
   add() {
-    
-    this.formData.id = Math.floor(Math.random() * 10000);  
+   
+    AddtTasksComponent.lastId++;
+    this.formData.id = AddtTasksComponent.lastId;
 
     this._TaskService.add(this.formData).subscribe({
       next: () => {
